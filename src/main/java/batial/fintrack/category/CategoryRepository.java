@@ -1,2 +1,9 @@
-package batial.fintrack.category;public class CategoryRepository {
+package batial.fintrack.category;
+
+import batial.fintrack.user.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+    List<Category> findByUser(User user);
 }
