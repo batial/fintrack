@@ -17,15 +17,21 @@ public class CategoryController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Category>> getAll(@AuthenticationPrincipal User user) {
-        return ResponseEntity.ok(categoryService.findByUser(user));
+    public ResponseEntity<List<CategoryResponse>> getAll(@AuthenticationPrincipal User user) {
+        return ResponseEntity.ok(
+                categoryService.findByUser(user)
+                        .stream()
+                        .map(CategoryResponse::from)
+                        .toList()
+        );
     }
 
     @PostMapping
-    public ResponseEntity<Category> create(@RequestBody Category category,
-                                           @AuthenticationPrincipal User user) {
+    public ResponseEntity<CategoryResponse> create(@RequestBody Category category,
+                                                   @AuthenticationPrincipal User user) {
         category.setUser(user);
-        return ResponseEntity.ok(categoryService.save(category));
+        Category saved = categoryService.save(category);
+        return ResponseEntity.ok(CategoryResponse.from(saved));
     }
 
     @DeleteMapping("/{id}")
