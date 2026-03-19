@@ -21,7 +21,7 @@ FinTrack permite a los usuarios registrar y analizar sus movimientos financieros
 - Java 21
 - Docker Desktop
 
-## ⚙️ Cómo correr el proyecto
+##  Cómo correr el proyecto
 
 **1. Clonar el repositorio**
 ```bash
