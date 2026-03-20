@@ -6,6 +6,10 @@ API REST de gestión de finanzas personales construida con Spring Boot.
 
 FinTrack permite a los usuarios registrar y analizar sus movimientos financieros. Cada usuario puede gestionar sus ingresos y gastos, organizarlos por categorías, definir presupuestos mensuales y consultar reportes de sus finanzas.
 
+## Demo
+
+API disponible en: https://fintrack-production-6c7d.up.railway.app/swagger-ui/index.html
+
 ##  Tecnologías
 
 - **Java 21**
