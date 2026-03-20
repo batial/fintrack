@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/fintrack
-    username: fintrack_user
-    password: fintrack_pass
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/fintrack}
+    username: ${SPRING_DATASOURCE_USERNAME:fintrack_user}
+    password: ${SPRING_DATASOURCE_PASSWORD:fintrack_pass}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -14,13 +14,11 @@ spring:
         format_sql: true
   data:
     redis:
-      host: localhost
-      port: 6379
+      url: ${SPRING_DATA_REDIS_URL:redis://localhost:6379}
 
 server:
-  port: 8080
+  port: ${PORT:8080}
 
 jwt:
-  secret: 404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970
-  expiration: 86400000
-
+  secret: ${JWT_SECRET:404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970}
+  expiration: ${JWT_EXPIRATION:86400000}
