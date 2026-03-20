@@ -7,6 +7,7 @@ import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import io.swagger.v3.oas.models.servers.Server;
 
 @Configuration
 public class SwaggerConfig {
@@ -18,6 +19,7 @@ public class SwaggerConfig {
                         .title("FinTrack API")
                         .description("API de gestión de finanzas personales")
                         .version("1.0.0"))
+                .addServersItem(new Server().url("https://fintrack-production-6c7d.up.railway.app"))
                 .addSecurityItem(new SecurityRequirement().addList("Bearer Authentication"))
                 .components(new Components()
                         .addSecuritySchemes("Bearer Authentication", new SecurityScheme()
